@@ -287,7 +287,7 @@ func run() (retVal error) {
 	}
 
 	if err := dumpConfigFiles(opts.Directory, opts.TimeFormat, db, producedFiles); err != nil {
-		return fmt.Errorf("could not dump configuration files: %w", err)
+		l.Verbosef("skipping: \"could not dump configuration files: %w\"", err)
 	}
 
 	databases, err := listDatabases(db, opts.WithTemplates, opts.ExcludeDbs, opts.Dbnames)
